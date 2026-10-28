@@ -68,6 +68,31 @@
             50% { transform: translate(20px, -20px) scale(1.05); }
             100% { transform: translate(-20px, 20px) scale(0.95); }
         }
+
+        /* Reveal Animations on Scroll */
+        .reveal, .reveal-left, .reveal-right {
+            visibility: hidden;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active, .reveal-left.active, .reveal-right.active {
+            opacity: 1;
+            transform: translate(0, 0);
+            visibility: visible;
+        }
     </style>
 </head>
 <body class="font-sans text-slate-700 bg-light antialiased selection:bg-primary selection:text-white">
@@ -150,17 +175,17 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-4xl mx-auto">
-                <span class="inline-block py-1 px-3 rounded-full bg-white/60 border border-white/40 text-primary font-semibold text-sm mb-6 shadow-sm backdrop-blur-sm" data-i18n="hero-est">
+                <span class="inline-block py-1 px-3 rounded-full bg-white/60 border border-white/40 text-primary font-semibold text-sm mb-6 shadow-sm backdrop-blur-sm reveal" data-i18n="hero-est">
                     Est. 20 Novembru 2021
                 </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-dark tracking-tight leading-tight mb-8">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-dark tracking-tight leading-tight mb-8 reveal" style="transition-delay: 100ms;">
                     <span data-i18n="hero-title1">Asosiasaun Parteira</span> <br class="hidden sm:block"/>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary" data-i18n="hero-title2">Timor-Leste (APTL)</span>
                 </h1>
-                <p class="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed" data-i18n="hero-desc">
+                <p class="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay: 200ms;" data-i18n="hero-desc">
                     Halibur parteira sira iha Timor-Leste, hametin kapasidade profisionál no hadi'a kualidade atendimentu saúde ba inan no bebé.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 reveal" style="transition-delay: 300ms;">
                     <a href="#about" class="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-full font-semibold shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:bg-primaryDark transition-all transform hover:-translate-y-1" data-i18n="hero-btn1">
                         Haree Ami Nia Istória
                     </a>
@@ -180,7 +205,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <!-- Image/Visual -->
-                <div class="relative">
+                <div class="relative reveal-left">
                     <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl transform translate-x-4 translate-y-4"></div>
                     <img src="https://placehold.co/800x600/10b981/ffffff?text=Atendimentu+Saude+Timor-Leste" alt="Bidan melayani kesehatan" class="relative rounded-3xl shadow-2xl object-cover w-full h-auto">
                     
@@ -199,7 +224,7 @@
                 </div>
 
                 <!-- Text Content -->
-                <div>
+                <div class="reveal-right">
                     <h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-2" data-i18n="about-tag">Sobre Nós</h2>
                     <h3 class="text-3xl sm:text-4xl font-extrabold text-dark mb-6 leading-tight" data-i18n="about-title">Istória no Fundasaun APTL</h3>
                     <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="about-desc">
@@ -243,7 +268,7 @@
     <!-- What We Do Section -->
     <section id="programs" class="py-24 bg-slate-50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <h2 class="text-secondary font-bold tracking-wide uppercase text-sm mb-2" data-i18n="prog-tag">Programas</h2>
                 <h3 class="text-3xl sm:text-4xl font-extrabold text-dark mb-4" data-i18n="prog-title">Saida mak Ami Halo?</h3>
                 <p class="text-slate-600 text-lg" data-i18n="prog-desc">
@@ -253,47 +278,55 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Pillar 1 -->
-                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                <div class="reveal" style="transition-delay: 100ms;">
+                    <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 h-full">
+                        <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-1-title">Kapasidade & Abilidade</h4>
+                        <p class="text-slate-600 leading-relaxed" data-i18n="prog-1-desc">
+                            Hametin kapasidade no abilidade téknika parteira sira-nian hodi fó atendimentu ne'ebé di'ak liu.
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-1-title">Kapasidade & Abilidade</h4>
-                    <p class="text-slate-600 leading-relaxed" data-i18n="prog-1-desc">
-                        Hametin kapasidade no abilidade téknika parteira sira-nian hodi fó atendimentu ne'ebé di'ak liu.
-                    </p>
                 </div>
 
                 <!-- Pillar 2 -->
-                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 h-full">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-2-title">Atendimentu Seguru</h4>
+                        <p class="text-slate-600 leading-relaxed" data-i18n="prog-2-desc">
+                            Promove atendimentu seguru no ho kualidade ba inan isin-rua, inan neʼebé atu partu no bebé foin moris.
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-2-title">Atendimentu Seguru</h4>
-                    <p class="text-slate-600 leading-relaxed" data-i18n="prog-2-desc">
-                        Promove atendimentu seguru no ho kualidade ba inan isin-rua, inan neʼebé atu partu no bebé foin moris.
-                    </p>
                 </div>
 
                 <!-- Pillar 3 -->
-                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center text-yellow-600 mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <div class="reveal" style="transition-delay: 300ms;">
+                    <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 h-full">
+                        <div class="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center text-yellow-600 mb-6">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-3-title">Étika & Responsabilidade</h4>
+                        <p class="text-slate-600 leading-relaxed" data-i18n="prog-3-desc">
+                            Hasa'e étika, responsabilidade no komportamentu profisionál parteira sira-nian durante hala'o knaar.
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-3-title">Étika & Responsabilidade</h4>
-                    <p class="text-slate-600 leading-relaxed" data-i18n="prog-3-desc">
-                        Hasa'e étika, responsabilidade no komportamentu profisionál parteira sira-nian durante hala'o knaar.
-                    </p>
                 </div>
 
                 <!-- Pillar 4 -->
-                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <div class="reveal" style="transition-delay: 400ms;">
+                    <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 h-full">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-4-title">Dezenvolvimentu Profisaun</h4>
+                        <p class="text-slate-600 leading-relaxed" data-i18n="prog-4-desc">
+                            Apoia dezenvolvimentu profisaun parteira iha Timor-Leste no reprezenta interese profisionál sira-nian.
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold text-dark mb-3" data-i18n="prog-4-title">Dezenvolvimentu Profisaun</h4>
-                    <p class="text-slate-600 leading-relaxed" data-i18n="prog-4-desc">
-                        Apoia dezenvolvimentu profisaun parteira iha Timor-Leste no reprezenta interese profisionál sira-nian.
-                    </p>
                 </div>
             </div>
         </div>
@@ -314,23 +347,27 @@
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <h2 class="text-white/80 font-bold tracking-wide uppercase text-sm mb-2" data-i18n="mem-tag">Ami Nia Rede</h2>
                 <h3 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="mem-title">Membru APTL</h3>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Stat 1 -->
-                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 text-center transform transition duration-500 hover:scale-105">
-                    <div class="text-5xl font-extrabold text-white mb-2">1.500<span class="text-accent">+</span></div>
-                    <p class="text-primary-100 text-lg font-medium text-white/90" data-i18n="mem-stat1">Membru Rejistadu</p>
+                <div class="reveal" style="transition-delay: 100ms;">
+                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 text-center transform transition duration-500 hover:scale-105 h-full">
+                        <div class="text-5xl font-extrabold text-white mb-2">1.500<span class="text-accent">+</span></div>
+                        <p class="text-primary-100 text-lg font-medium text-white/90" data-i18n="mem-stat1">Membru Rejistadu</p>
+                    </div>
                 </div>
                 
                 <!-- Stat 2 -->
-                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 text-center transform transition duration-500 hover:scale-105">
-                    <div class="text-5xl font-extrabold text-white mb-2">800<span class="text-accent">+</span></div>
-                    <p class="text-primary-100 text-lg font-medium text-white/90" data-i18n="mem-stat2">Membru Ativu</p>
-                    <p class="text-sm text-white/70 mt-2" data-i18n="mem-stat2-desc">Servisu iha ospitál, sentru saúde no postu saúde.</p>
+                <div class="reveal" style="transition-delay: 300ms;">
+                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 text-center transform transition duration-500 hover:scale-105 h-full">
+                        <div class="text-5xl font-extrabold text-white mb-2">800<span class="text-accent">+</span></div>
+                        <p class="text-primary-100 text-lg font-medium text-white/90" data-i18n="mem-stat2">Membru Ativu</p>
+                        <p class="text-sm text-white/70 mt-2" data-i18n="mem-stat2-desc">Servisu iha ospitál, sentru saúde no postu saúde.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -341,11 +378,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header yang diperbaiki letaknya (Rata kiri di mobile, Rata bawah di desktop) -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
-                <div class="max-w-2xl">
+                <div class="max-w-2xl reveal-left">
                     <h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-2" data-i18n="news-tag">Notísias no Eventus</h2>
                     <h3 class="text-3xl sm:text-4xl font-extrabold text-dark leading-tight" data-i18n="news-title">Featured Story</h3>
                 </div>
-                <div>
+                <div class="reveal-right">
                     <a href="#" class="text-secondary font-semibold hover:text-purple-700 flex items-center gap-2 transition-transform hover:translate-x-1">
                         <span data-i18n="news-link">Haree Notísia Hotu</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -354,7 +391,7 @@
             </div>
 
             <!-- Featured Content Container -->
-            <div class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-md flex flex-col lg:flex-row">
+            <div class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-md flex flex-col lg:flex-row reveal" style="transition-delay: 200ms;">
                 <!-- Video/Media Area -->
                 <div class="w-full lg:w-3/5 relative bg-slate-900 aspect-video">
                     <!-- Standard YouTube Embed Placeholder -->
@@ -396,7 +433,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 
                 <!-- Brand Column -->
-                <div class="col-span-1 lg:col-span-2">
+                <div class="col-span-1 lg:col-span-2 reveal" style="transition-delay: 100ms;">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 relative">
                             <img src="assets/logoputih.png" alt="Logo APTL Putih" class="w-full h-full object-contain">
@@ -409,7 +446,7 @@
                 </div>
 
                 <!-- Links Column -->
-                <div>
+                <div class="reveal" style="transition-delay: 200ms;">
                     <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm" data-i18n="foot-link-tag">Ligasaun</h3>
                     <ul class="space-y-3">
                         <li><a href="#about" class="text-slate-400 hover:text-primary transition-colors" data-i18n="nav-about">Sobre Nós</a></li>
@@ -420,7 +457,7 @@
                 </div>
 
                 <!-- Contact Column -->
-                <div>
+                <div class="reveal" style="transition-delay: 300ms;">
                     <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm" data-i18n="foot-contact-tag">Kontaktu</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start">
@@ -444,9 +481,25 @@
                     &copy; <span id="year"></span> <span data-i18n="foot-rights">Asosiasaun Parteira Timor-Leste (APTL). All rights reserved.</span>
                 </p>
                 <div class="flex space-x-4">
+                    <!-- Facebook -->
                     <a href="#" class="text-slate-500 hover:text-white transition-colors">
                         <span class="sr-only">Facebook</span>
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">
+                        <span class="sr-only">TikTok</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg>
+                    </a>
+                    <!-- YouTube -->
+                    <a href="isi link youtube disini" class="text-slate-500 hover:text-white transition-colors" target="_blank">
+                        <span class="sr-only">YouTube</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                 </div>
             </div>
@@ -740,6 +793,24 @@
                 }, 300);
             }
         }
+
+        // Scroll Reveal Animation Initialization
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Animate only once
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            revealOnScroll.observe(el);
+        });
     </script>
 </body>
 </html>
