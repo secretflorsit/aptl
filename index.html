@@ -808,7 +808,7 @@
         
         <!-- Counter -->
         <div class="absolute bottom-6 text-white/70 font-semibold tracking-widest text-sm">
-            <span id="lightbox-counter">1</span> / 24
+            <span id="lightbox-counter">1</span> / 21
         </div>
     </div>
 
@@ -1178,7 +1178,7 @@
         // ----------------------------------------------------
         // Gallery Automation & Logic
         // ----------------------------------------------------
-        const totalPhotos = 24;
+        const totalPhotos = 21;
         let currentImageIndex = 0;
         
         document.addEventListener("DOMContentLoaded", () => {
@@ -1189,9 +1189,9 @@
                     galleryHTML += `
                     <div class="flex-shrink-0 snap-center w-[220px] sm:w-[280px] md:w-[320px]">
                         <div class="w-full aspect-[4/5] bg-slate-100 rounded-2xl shadow-md overflow-hidden relative group cursor-pointer border border-slate-200" onclick="openLightbox(${i - 1})">
-                            <img src="assets/foto${i}.png" alt="Galeria ${i}" 
+                            <img src="assets/photo${i}.png" alt="Galeria ${i}" 
                                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none" 
-                                 onerror="this.src='https://placehold.co/1080x1350/10b981/ffffff?text=Foto+${i}'">
+                                 onerror="this.src='https://placehold.co/1080x1350/10b981/ffffff?text=Photo+${i}'">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center self-center mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
@@ -1311,8 +1311,8 @@
             const img = document.getElementById('lightbox-img');
             const counter = document.getElementById('lightbox-counter');
             
-            img.src = `assets/foto${currentImageIndex + 1}.png`;
-            img.onerror = () => { img.src = `https://placehold.co/1080x1350/10b981/ffffff?text=Foto+${currentImageIndex + 1}`; };
+            img.src = `assets/photo${currentImageIndex + 1}.png`;
+            img.onerror = () => { img.src = `https://placehold.co/1080x1350/10b981/ffffff?text=Photo+${currentImageIndex + 1}`; };
             counter.innerText = currentImageIndex + 1;
         }
 
