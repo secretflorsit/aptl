@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APTL - Asosiasaun Parteira Timor-Leste</title>
+    <meta property="twitter:description" content="Halibur parteira sira iha Timor-Leste, hametin kapasidade profisionál no hadi'a kualidade atendimentu saúde ba inan no bebé.">
+    <meta property="twitter:image" content="https://aptlinfo.vercel.app/assets/logo.png">
     
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="APTL - Asosiasaun Parteira Timor-Leste">
-    <meta name="description" content="Halibur parteira sira iha Timor-Leste, hametin kapasidade profisionál no hadi'a kualidade atendimentu saúde ba inan no bebé.">
-
+    <!-- Favicon (Ikon Tab Browser) -->
+    <link rel="icon" type="image/png" href="assets/logo.png" onerror="this.href='https://placehold.co/32x32/10b981/ffffff?text=APTL'">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,7 +114,7 @@
                 
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <img src="assets/logo.png" alt="Logo APTL" class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='https://placehold.co/100x100/10b981/ffffff?text=APTL'">
+                    <img src="assets/logo.png" alt="Logo APTL" class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='https://placehold.co/120x120/10b981/ffffff?text=APTL'">
                     <div>
                         <h1 class="text-xl font-bold text-dark leading-tight tracking-tight">Asosiasaun Parteira</h1>
                         <p class="text-[0.65rem] font-medium text-slate-500 uppercase tracking-widest hidden sm:block">Timor-Leste</p>
@@ -803,30 +803,29 @@
     </div>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm" onclick="closeLightbox(event)">
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-md hidden flex-col items-center justify-center opacity-0 transition-all duration-300 pointer-events-none" onclick="closeLightbox(event)">
         <!-- Close Button -->
-        <button class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white hover:text-primary z-50 p-2 bg-white/10 rounded-full transition-colors focus:outline-none" onclick="closeLightbox(event)">
-            <svg class="w-6 h-6 sm:w-8 sm:h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        <button class="absolute top-4 right-4 sm:top-6 sm:right-6 text-slate-700 hover:text-primary z-50 p-2.5 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all transform hover:scale-105 focus:outline-none" onclick="closeLightbox(event)">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         
         <!-- Prev Button -->
-        <button class="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 text-white hover:text-primary z-50 p-2 sm:p-4 bg-black/40 hover:bg-white/10 rounded-full transition-colors focus:outline-none" onclick="prevImage(event)">
-            <svg class="w-8 h-8 sm:w-10 sm:h-10 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        <button class="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 text-slate-700 hover:text-primary z-50 p-3 sm:p-4 bg-white/80 hover:bg-white shadow-lg rounded-full transition-all transform hover:scale-105 focus:outline-none" onclick="prevImage(event)">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
         </button>
         
         <!-- Next Button -->
-        <button class="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 text-white hover:text-primary z-50 p-2 sm:p-4 bg-black/40 hover:bg-white/10 rounded-full transition-colors focus:outline-none" onclick="nextImage(event)">
-            <svg class="w-8 h-8 sm:w-10 sm:h-10 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <button class="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 text-slate-700 hover:text-primary z-50 p-3 sm:p-4 bg-white/80 hover:bg-white shadow-lg rounded-full transition-all transform hover:scale-105 focus:outline-none" onclick="nextImage(event)">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
         </button>
         
-        <!-- Image Container -->
-        <div class="w-full max-w-5xl px-4 sm:px-12 lg:px-24 flex items-center justify-center">
-            <!-- Menyesuaikan agar maksimal ukuran tidak melewati layar dan mempertahankan aspek rasio -->
-            <img id="lightbox-img" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-95" alt="Preview" onclick="event.stopPropagation()">
+        <!-- Image Container with Popup Spring Animation -->
+        <div class="w-full max-w-5xl px-4 sm:px-12 lg:px-24 flex items-center justify-center transform transition-all duration-300 scale-75 opacity-0" id="lightbox-wrapper" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" class="max-h-[82vh] max-w-full object-contain rounded-2xl shadow-2xl border-4 border-white/80 bg-white" alt="Preview">
         </div>
         
-        <!-- Counter -->
-        <div class="absolute bottom-6 text-white/70 font-semibold tracking-widest text-sm">
+        <!-- Counter Badge -->
+        <div class="absolute bottom-6 px-4 py-1.5 bg-white/80 backdrop-blur-md rounded-full text-slate-700 font-bold tracking-widest text-xs shadow-md">
             <span id="lightbox-counter">1</span> / 21
         </div>
     </div>
@@ -1289,59 +1288,60 @@
         function openLightbox(index) {
             currentImageIndex = index;
             const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
+            const wrapper = document.getElementById('lightbox-wrapper');
             
             updateLightboxContent();
             
-            lightbox.classList.remove('hidden');
-            // Trigger reflow for CSS transition
-            void lightbox.offsetWidth;
+            lightbox.classList.remove('hidden', 'pointer-events-none');
+            void lightbox.offsetWidth; // Trigger reflow
             lightbox.classList.remove('opacity-0');
-            img.classList.remove('scale-95');
-            img.classList.add('scale-100');
+            lightbox.classList.add('opacity-100');
             
-            // Prevent body scroll
+            wrapper.classList.remove('scale-75', 'opacity-0');
+            wrapper.classList.add('scale-100', 'opacity-100');
+            
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox(e) {
-            // Close if background is clicked or close button is clicked (event target is lightbox or button)
             if(e && e.target.id !== 'lightbox' && e.currentTarget.id !== 'lightbox' && e.currentTarget.tagName !== 'BUTTON') return;
             
             const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
+            const wrapper = document.getElementById('lightbox-wrapper');
             
+            lightbox.classList.remove('opacity-100');
             lightbox.classList.add('opacity-0');
-            img.classList.remove('scale-100');
-            img.classList.add('scale-95');
+            
+            wrapper.classList.remove('scale-100', 'opacity-100');
+            wrapper.classList.add('scale-75', 'opacity-0');
             
             setTimeout(() => {
-                lightbox.classList.add('hidden');
+                lightbox.classList.add('hidden', 'pointer-events-none');
                 document.body.style.overflow = '';
             }, 300);
         }
 
         function prevImage(e) {
-            e.stopPropagation(); // Prevent closing lightbox
+            e.stopPropagation();
             currentImageIndex = (currentImageIndex - 1 + totalPhotos) % totalPhotos;
             animateLightboxImage();
         }
 
         function nextImage(e) {
-            e.stopPropagation(); // Prevent closing lightbox
+            e.stopPropagation();
             currentImageIndex = (currentImageIndex + 1) % totalPhotos;
             animateLightboxImage();
         }
         
         function animateLightboxImage() {
-            const img = document.getElementById('lightbox-img');
-            img.classList.remove('scale-100');
-            img.classList.add('scale-95', 'opacity-50');
+            const wrapper = document.getElementById('lightbox-wrapper');
+            wrapper.classList.remove('scale-100', 'opacity-100');
+            wrapper.classList.add('scale-90', 'opacity-30');
             
             setTimeout(() => {
                 updateLightboxContent();
-                img.classList.remove('scale-95', 'opacity-50');
-                img.classList.add('scale-100');
+                wrapper.classList.remove('scale-90', 'opacity-30');
+                wrapper.classList.add('scale-100', 'opacity-100');
             }, 150);
         }
 
@@ -1351,7 +1351,7 @@
             
             img.src = `assets/photo${currentImageIndex + 1}.png`;
             img.onerror = () => { 
-                img.onerror = null; // Prevent infinite error loops
+                img.onerror = null; 
                 img.src = `https://placehold.co/1080x1350/10b981/ffffff?text=Photo+${currentImageIndex + 1}`; 
             };
             counter.innerText = currentImageIndex + 1;
